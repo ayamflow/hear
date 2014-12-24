@@ -1,0 +1,29 @@
+{
+    "name": "hear",
+    "version": "1.0.0",
+    "repository": "ayamflow/hear",
+    "description": "Listen to any event, with a single API.",
+    "main": "src/index.js",
+    "scripts": [
+        "src/index.js",
+        "src/utils.js"
+    ],
+    "keywords": [
+        "mediator",
+        "pubsub",
+        "emitter"
+    ],
+    "author": "= <=>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/ayamflow/hear/issues"
+    },
+    "dependencies": {},
+    "development": {
+        "dependencies": {
+            "component-emitter": "^1.1.3",
+            "mediator-js": "^0.9.8",
+            "tape": "^3.0.3"
+        }
+    }
+}
