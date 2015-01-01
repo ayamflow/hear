@@ -19,6 +19,12 @@ module.exports = {
             callback = setBound(name, fn, context);
         }
 
+        // Google maps special case
+        if(emitter.gm_accessors_) {
+            window.google.maps.events.addListener(emitter, name, callback);
+            return;
+        }
+
         emitter[onMethod].call(emitter, name, callback);
     },
 
@@ -34,6 +40,14 @@ module.exports = {
             callbacks = getBound(name, fn, context);
         }
 
+        // Google maps special case
+        if(emitter.gm_accessors_) {
+            callbacks.forEach(function(cb) {
+                window.google.maps.events.clearListeners(emitter, name, cb);
+            });
+            return;
+        }
+
         callbacks.forEach(function(cb) {
             emitter[offMethod].call(emitter, name, cb);
         });
@@ -47,6 +61,13 @@ module.exports = {
             if(context) {
                 callback = setBound(name, fn, context);
             }
+
+            // Google maps special case
+            if(emitter.gm_accessors_) {
+                window.google.maps.events.addListenerOnce(emitter, name, callback);
+                return;
+            }
+
             emitter[onceMethod].call(emitter, name, callback);
             return;
         }
