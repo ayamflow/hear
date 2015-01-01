@@ -1,13 +1,7 @@
 'use strict';
 
 var _ = require('./utils');
-
-var methods = {
-    on: ['on', 'sub', 'subscribe', 'addListener', 'addEventListener', '$on'],
-    once: ['once', 'one', 'subOnce', 'subscribeOnce', 'addListenerOnce', '$once'],
-    off: ['off', 'unsub', 'unsubscribe', 'removeListener', 'removeEventListener', 'clearListeners', '$off'],
-    offAll: ['removeAllListeners', 'removeAll']
-};
+var methods = require('./events');
 
 var bounds = {};
 
