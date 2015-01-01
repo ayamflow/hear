@@ -4,7 +4,7 @@ var _ = require('./utils');
 
 var methods = {
     on: ['on', 'sub', 'subscribe', 'addListener', 'addEventListener', '$on'],
-    once: ['once', 'subOnce', 'subscribeOnce', 'addListenerOnce', '$once'],
+    once: ['once', 'one', 'subOnce', 'subscribeOnce', 'addListenerOnce', '$once'],
     off: ['off', 'unsub', 'unsubscribe', 'removeListener', 'removeEventListener', 'clearListeners', '$off'],
     offAll: ['removeAllListeners', 'removeAll']
 };
