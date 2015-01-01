@@ -4,7 +4,7 @@
   "description": "Listen to any event emitter, with a single API.",
   "main": "src/index.js",
   "scripts": {
-    "test": "browserify test/index.js | testling",
+    "test": "browserify test/index.js | smokestack | faucet",
     "test-browser": "beefy test/index.js:test/build.js --debug=false"
   },
   "repository": {
