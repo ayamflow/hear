@@ -53,3 +53,7 @@ If supported by the passed `emitter`:
 Checkout from `dev`, merge back against `dev`.
 Add relevant test cases.
 4 spaces, semicolon.
+
+## Todo
+- support `off` method without event/fn argument
+- add test with gmaps, angular/vue, jquery
