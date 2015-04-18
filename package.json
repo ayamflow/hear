@@ -1,6 +1,6 @@
 {
   "name": "hear",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Listen to any event emitter, with a single API.",
   "main": "src/index.js",
   "scripts": {
