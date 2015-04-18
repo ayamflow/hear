@@ -4,8 +4,17 @@ hear
 Listen to any event emitter with a single API.
 
 `.on`, `.addEventListener`, .`subscribe`, ... Why are there so many method names ?
-hear is an "universal binder" that allows you to use one method name with the different event emitters, whether it is a DOM node, Node EventEmitter, mediator... You can also pass a context and hear will handle this for you (no `bind` leak).
 
+hear is an "universal binder" that allows you to use one method name with the different event emitters, whether it is a DOM node, Node EventEmitter, mediator...
+You can also pass a context and hear will handle this for you (no `bind` leak).
+
+## Supported emitter types
+- DOM nodes
+- jQuery events
+- Angular & Vue internal emitters
+- Google Maps events
+- Basically all objects with `on`/`off` methods. See [events.js](src/events.js) for API support list.
+ 
 ## Installation & usage
 `npm i --save hearjs`
 
@@ -44,3 +53,7 @@ If supported by the passed `emitter`:
 Checkout from `dev`, merge back against `dev`.
 Add relevant test cases.
 4 spaces, semicolon.
+
+## Todo
+- support `off` method without event/fn argument
+- add test with gmaps, angular/vue, jquery

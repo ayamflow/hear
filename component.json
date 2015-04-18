@@ -6,6 +6,7 @@
     "main": "src/index.js",
     "scripts": [
         "src/index.js",
+        "src/events.js",
         "src/utils.js"
     ],
     "keywords": [
