@@ -7,9 +7,8 @@ module.exports = {
         Fast bind
      */
     bind: function(func, context) {
-        var args = slice.call(arguments, 2);
         return function() {
-            return func.apply(context, args);
+            return func.apply(context, arguments);
         };
     }
 };
