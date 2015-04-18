@@ -18,9 +18,10 @@ function triggerEvent(el, eventName) {
 }
 
 test('hear.on with DOM node', function(assert) {
-    assert.plan(1);
+    assert.plan(2);
 
-    function callback() {
+    function callback(event) {
+        assert.notEqual(event, undefined, 'Event should exist');
         assert.pass('event listener should be called');
     }
 
@@ -47,12 +48,13 @@ test('hear.off with DOM node', function(assert) {
 });
 
 test('hear.once with DOM node', function(assert) {
-    assert.plan(2);
+    assert.plan(3);
 
     var called = false;
 
-    function callback() {
+    function callback(event) {
         if(!called) {
+            assert.notEqual(event, undefined, 'Event should exist');
             assert.pass('event listener should be called');
             called = true;
             return;
@@ -72,11 +74,12 @@ test('hear.once with DOM node', function(assert) {
 });
 
 test('hear.on with DOM node and context', function(assert) {
-    assert.plan(2);
+    assert.plan(3);
 
     var obj = {
         prop: 'foo',
-        callback: function() {
+        callback: function(event) {
+            assert.notEqual(event, undefined, 'Event should exist');
             assert.deepEqual(this.prop, 'foo', 'Context should be properly bound');
         },
         nopeCallback: function() {
@@ -91,13 +94,14 @@ test('hear.on with DOM node and context', function(assert) {
 });
 
 test('hear.once with DOM node and context', function(assert) {
-    assert.plan(3);
+    assert.plan(4);
 
     var obj = {
         prop: 'foo',
         called: false,
-        callback: function() {
+        callback: function(event) {
             if(!this.called) {
+                assert.notEqual(event, undefined, 'Event should exist');
                 assert.pass('Callback called once');
                 assert.deepEqual(this.prop, 'foo', 'Context should be properly bound');
                 this.called = true;
