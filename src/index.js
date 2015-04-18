@@ -70,14 +70,10 @@ module.exports = {
         }
 
         // Else use internal `once`
-        var on = _.bind(function(emitter, name, fn, context) {
+        var on = _.bind(function() {
             this.off(emitter, name, on, context);
-            if(context) {
-                fn.call(context);
-                return;
-            }
-            fn();
-        }, this, emitter, name, fn, context);
+            fn.apply(context, arguments);
+        }, this);
 
         this.on(emitter, name, on, context);
     }
