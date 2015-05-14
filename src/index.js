@@ -36,6 +36,7 @@ module.exports = {
         if(context) {
             callbacks = getBound(name, fn, context);
         }
+        if (!callbacks) return;
 
         // UNTESTED - Google maps special case
         /*if(emitter.gm_accessors_) {
@@ -111,6 +112,8 @@ function setBound(name, fn, context) {
  */
 function getBound(name, fn, context) {
     var namedEvents = bounds[name];
+    if (!namedEvents) return;
+
     var events = [];
     for(var i = namedEvents.length - 1; i >= 0; i--) {
         var bound = namedEvents[i];
