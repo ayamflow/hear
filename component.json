@@ -1,6 +1,6 @@
 {
     "name": "hear",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "repository": "ayamflow/hear",
     "description": "Listen to any event, with a single API.",
     "main": "src/index.js",
