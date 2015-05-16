@@ -35,8 +35,8 @@ module.exports = {
         var callbacks = [fn];
         if(context) {
             callbacks = getBound(name, fn, context);
+            if (!callbacks) return;
         }
-        if (!callbacks) return;
 
         // UNTESTED - Google maps special case
         /*if(emitter.gm_accessors_) {
@@ -47,7 +47,7 @@ module.exports = {
         }*/
 
         callbacks.forEach(function(cb) {
-            emitter[offMethod].call(emitter, name, cb);
+            emitter[offMethod].call(emitter, name, cb.bound || cb);
         });
     },
 
@@ -118,7 +118,7 @@ function getBound(name, fn, context) {
     for(var i = namedEvents.length - 1; i >= 0; i--) {
         var bound = namedEvents[i];
         if(bound.fn === fn && bound.context === context) {
-            events.concat(namedEvents.splice(i, 1));
+            events = events.concat(namedEvents.splice(i, 1));
         }
     }
     return events;
